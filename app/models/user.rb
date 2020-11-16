@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/.freeze
+  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z+\d]+\z/i.freeze
 
@@ -17,4 +17,6 @@ class User < ApplicationRecord
     validates :birthday
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'is invalid. Input half-width characters.' }
+
+  has_many :items
 end
