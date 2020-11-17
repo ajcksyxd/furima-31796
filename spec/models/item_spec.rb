@@ -26,13 +26,13 @@ RSpec.describe Item, type: :model do
         end
 
         it '商品名が空では登録できないこと' do
-          @item.name = ""
+          @item.name = ''
           @item.valid?
           expect(@item.errors.full_messages).to include("Name can't be blank")
         end
 
         it '商品の説明が空では登録できないこと' do
-          @item.description = ""
+          @item.description = ''
           @item.valid?
           expect(@item.errors.full_messages).to include("Description can't be blank")
         end
@@ -76,19 +76,19 @@ RSpec.describe Item, type: :model do
         it '販売価格が指定の範囲外では登録できないこと' do
           @item.price = 299
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is out of setting range")
+          expect(@item.errors.full_messages).to include('Price is out of setting range')
         end
 
         it '販売価格が指定の範囲外では登録できないこと' do
-          @item.price = 10000000
+          @item.price = 10_000_000
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is out of setting range")
+          expect(@item.errors.full_messages).to include('Price is out of setting range')
         end
 
         it '販売価格が半角数字でないと登録できないこと' do
-          @item.price = "abcdef"
+          @item.price = 'abcdef'
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+          expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
         end
       end
     end
