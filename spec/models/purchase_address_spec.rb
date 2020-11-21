@@ -14,7 +14,7 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       context '商品購入処理がうまくいかないとき' do
-        it "tokenが空では購入できないこと" do
+        it 'tokenが空では購入できないこと' do
           @purchase_address.token = nil
           @purchase_address.valid?
           expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
@@ -29,13 +29,13 @@ RSpec.describe PurchaseAddress, type: :model do
         it '郵便番号に-がないと購入できないこと' do
           @purchase_address.postal_code = '1234567'
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("Postal code is invalid. Input correctly")
+          expect(@purchase_address.errors.full_messages).to include('Postal code is invalid. Input correctly')
         end
 
         it '都道府県を選択していないと登録できないこと' do
           @purchase_address.prefecture_id = 0
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("Prefecture status Select")
+          expect(@purchase_address.errors.full_messages).to include('Prefecture status Select')
         end
 
         it '市区町村が空では購入できないこと' do
@@ -59,13 +59,13 @@ RSpec.describe PurchaseAddress, type: :model do
         it '電話番号に-があると購入できないこと' do
           @purchase_address.phone_number = '090-123-456'
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+          expect(@purchase_address.errors.full_messages).to include('Phone number is invalid. Input only number')
         end
 
         it '電話番号が11桁以内でないと購入できないこと' do
           @purchase_address.phone_number = '090123456789'
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+          expect(@purchase_address.errors.full_messages).to include('Phone number is invalid. Input only number')
         end
       end
     end
