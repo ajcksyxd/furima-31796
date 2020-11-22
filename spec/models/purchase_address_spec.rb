@@ -8,7 +8,12 @@ RSpec.describe PurchaseAddress, type: :model do
 
     describe '商品購入処理' do
       context '商品購入処理がうまくいくとき' do
-        it '建物名以外の全ての項目の入力が存在すれば購入できること' do
+        it '全ての項目の入力が存在すれば購入できること' do
+          expect(@purchase_address).to be_valid
+        end
+
+        it '建物名が空でも購入できること' do
+          @purchase_address.building_name = nil
           expect(@purchase_address).to be_valid
         end
       end
