@@ -19,4 +19,5 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'is invalid. Input half-width characters.' }
 
   has_many :items
+  has_many :purchases
 end
