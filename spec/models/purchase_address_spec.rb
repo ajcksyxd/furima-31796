@@ -22,13 +22,13 @@ RSpec.describe PurchaseAddress, type: :model do
         it 'tokenが空では購入できないこと' do
           @purchase_address.token = nil
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("クレジットカード情報を入力してください")
+          expect(@purchase_address.errors.full_messages).to include('クレジットカード情報を入力してください')
         end
 
         it '郵便番号が空では購入できないこと' do
           @purchase_address.postal_code = nil
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("郵便番号を入力してください")
+          expect(@purchase_address.errors.full_messages).to include('郵便番号を入力してください')
         end
 
         it '郵便番号に-がないと購入できないこと' do
@@ -46,19 +46,19 @@ RSpec.describe PurchaseAddress, type: :model do
         it '市区町村が空では購入できないこと' do
           @purchase_address.municipality = ''
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("市区町村を入力してください")
+          expect(@purchase_address.errors.full_messages).to include('市区町村を入力してください')
         end
 
         it '番地が空では購入できないこと' do
           @purchase_address.house_number = ''
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("番地を入力してください")
+          expect(@purchase_address.errors.full_messages).to include('番地を入力してください')
         end
 
         it '電話番号が空では購入できないこと' do
           @purchase_address.phone_number = nil
           @purchase_address.valid?
-          expect(@purchase_address.errors.full_messages).to include("電話番号を入力してください")
+          expect(@purchase_address.errors.full_messages).to include('電話番号を入力してください')
         end
 
         it '電話番号に-があると購入できないこと' do
