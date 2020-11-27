@@ -7,12 +7,12 @@ class PurchaseAddress
 
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: POSTAL_CODE_REGEX, message: 'is invalid. Input correctly' }
+    validates :postal_code, format: { with: POSTAL_CODE_REGEX, message: 'は-を入れてください' }
     validates :municipality
     validates :house_number
-    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'is invalid. Input only number' }
+    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'は半角数字だけで入力してください' }
   end
-  validates :prefecture_id, numericality: { other_than: 0, message: 'status Select' }
+  validates :prefecture_id, numericality: { other_than: 0, message: 'を選択してください' }
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
