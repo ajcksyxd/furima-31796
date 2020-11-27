@@ -7,7 +7,7 @@ ja:
        first_name: 名前
        last_name_kana: 名字のフリガナ
        first_name_kana: 名前のフリガナ
-       birthday : 誕生日
+       birthday : 生年月日
      item:
        image: 画像
        name: 商品名
