@@ -17,7 +17,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ <%= @item.price %>
+        <%= converting_to_jpy(@item.price) %>
       </span>
       <span class="item-postage">
         <%= @item.shipping_charge.name %>
