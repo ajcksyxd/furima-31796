@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.order('created_at DESC')
   end
 
   def edit
