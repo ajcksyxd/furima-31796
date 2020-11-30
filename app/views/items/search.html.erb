@@ -1,0 +1,31 @@
+<%= render "shared/header" %>
+
+<h1 style="text-align:center; padding-top:50px">
+  <%= "#{@results.length}件の検索結果" %>
+</h1>
+
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <p style="text-align:center" >
+      <%= result.name %>
+    </p>
+    <p style="text-align:center" >
+      <%= link_to (image_tag result.image.variant(resize: '500x500')), item_path(result.id) %>
+    </p>
+    <p style="text-align:center" >
+      <%= converting_to_jpy(result.price) %>
+    </p>
+  <% end %>
+<% else %>
+<div style="text-align:center; padding-top:25px" >
+  該当する商品はありません
+</div>
+<% end %>
+<br>
+<div style="text-align:center; padding-bottom:50px">
+<%= link_to 'トップページへ戻る', root_path %>
+</div>
+
+<%= render "shared/second-footer"%>

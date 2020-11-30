@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items do
     resources :purchases, only: [:index, :create]
+    collection do
+      get 'search'
+    end
   end
-  get 'items/search'
 end
