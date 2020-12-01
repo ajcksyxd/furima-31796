@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @item = Item.find(params[:item_id])
-    comment = Comment.new(comment_params)
-    if comment.save
-       redirect_to item_path(@item)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to item_path(@comment.item)
     else
-       flash.now[:alert] = 'コメントを入力してください'
+      @item = @comment.item
+      @comments = @item.comments
+      render "items/show"
     end
   end
 
