@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :search_item, only: [:index, :search]
 
   def index
-    @items = Item.all.order('created_at DESC')
+    @items = Item.all.includes(:user).order('created_at DESC')
   end
 
   def new
